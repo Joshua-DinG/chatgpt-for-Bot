@@ -11,3 +11,4 @@ cp fonts/* /usr/share/fonts/
 
 Xvfb $DISPLAY -ac -screen $XVFB_SCREEN $XVFB_WHD -nolisten tcp &
 
+go-cqhttp -c config.yml
