@@ -1,6 +1,7 @@
 FROM python:3.11.2-slim-bullseye
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN apt-get install -y ca-certificates && update-ca-certificates
 RUN apt-get update && \
     apt-get install --no-install-recommends -yq xvfb binutils qtbase5-dev wkhtmltopdf ffmpeg nano tree git && \
     (strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5 || true) && \
@@ -10,8 +11,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
-RUN git clone https://github.com/lss233/chatgpt-mirai-qq-bot . && \
-    mv chatgpt-mirai-qq-bot/* chatgpt-mirai-qq-bot/.[!.]* . && \
+RUN git clone -b browser-version https://github.com/lss233/chatgpt-mirai-qq-bot  && \
+    mv chatgpt-mirai-qq-bot/* chatgpt-mirai-qq-bot/.[!.]* /app && \
     pip3 install -r requirements.txt && \
     rm -rf chatgpt-mirai-qq-bot
 
