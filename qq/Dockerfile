@@ -14,4 +14,4 @@ RUN curl -f -L https://github.com/Joshua-DinG/PicGoIMG/raw/main/go-cqhttp/device
 RUN curl -f -L https://github.com/Joshua-DinG/PicGoIMG/raw/main/go-cqhttp/config.yml -o ./config.yml
 
 
-CMD ["go-cqhttp", "-c", "/app/config.yml"]
+CMD ["/bin/bash", "/app/start.sh"]
