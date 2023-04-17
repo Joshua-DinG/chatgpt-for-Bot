@@ -1,13 +1,13 @@
 version: '3.4'
 services:
-  qq:
-    image: Josh-DinG-qq
-    container_name: qq
+  go-cqhttp:
+    image: qq:DinG
+    container_name: go-cqhttp
     volumes:
       - ./qq/config.yml:/app/config.yml
     restart: unless-stopped
   chatgpt:
-    image: Josh-DinG-chatgpt
+    image: chatgpt:DinG
     restart: always
     environment:
       LANG: 'C.UTF-8'
