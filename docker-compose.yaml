@@ -1,11 +1,11 @@
 version: '3.4'
 services:
-  go-cqhttp:
+  qq:
     image: qq:DinG
     restart: always
     environment:
       LANG: 'C.UTF-8'
-    container_name: go-cqhttp
+    container_name: qq
     volumes:
       - ./qq/config.yml:/app/config.yml
     restart: unless-stopped
@@ -14,6 +14,7 @@ services:
     restart: always
     environment:
       LANG: 'C.UTF-8'
+    container_name: chatgpt
     volumes:
       - ./config.cfg:/app/config.cfg
       - ./data:/app/data
