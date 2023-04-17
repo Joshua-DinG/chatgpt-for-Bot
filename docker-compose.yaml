@@ -2,6 +2,9 @@ version: '3.4'
 services:
   go-cqhttp:
     image: qq:DinG
+    restart: always
+    environment:
+      LANG: 'C.UTF-8'
     container_name: go-cqhttp
     volumes:
       - ./qq/config.yml:/app/config.yml
