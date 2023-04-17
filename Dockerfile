@@ -3,7 +3,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get install -y ca-certificates && update-ca-certificates
 RUN apt-get update && \
-    apt-get install --no-install-recommends -yq xvfb binutils qtbase5-dev wkhtmltopdf ffmpeg nano tree git && \
+    apt-get install --no-install-recommends -yq xvfb git subversion binutils qtbase5-dev wkhtmltopdf ffmpeg nano tree && \
     (strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5 || true) && \
     apt-get remove --purge -yq binutils && \
     apt-get clean && \
