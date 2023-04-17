@@ -16,4 +16,4 @@ RUN git clone -b browser-version https://github.com/lss233/chatgpt-mirai-qq-bot 
     pip3 install -r requirements.txt && \
     rm -rf chatgpt-mirai-qq-bot
 
-CMD ["/usr/bin/python3","/app/bot.py"]
+CMD ["python3","/app/bot.py"]
