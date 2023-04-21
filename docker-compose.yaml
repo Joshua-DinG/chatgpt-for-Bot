@@ -5,7 +5,6 @@ services:
     restart: always
     environment:
       LANG: 'C.UTF-8'
-    container_name: ${PWD##*/}-QQ
     volumes:
       - ./qq/config.yml:/app/config.yml
     restart: unless-stopped
@@ -15,7 +14,6 @@ services:
     restart: always
     environment:
       LANG: 'C.UTF-8'
-    container_name: ${PWD##*/}-GPT
     volumes:
       - ./config.cfg:/app/config.cfg
       - ./data:/app/data
