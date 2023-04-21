@@ -5,17 +5,17 @@ services:
     restart: always
     environment:
       LANG: 'C.UTF-8'
-    container_name: ${PWD##*/}-Shop.DinG.CM
+    container_name: ${PWD##*/}-QQ
     volumes:
       - ./qq/config.yml:/app/config.yml
     restart: unless-stopped
-  chatgpt:
-    image: chatgpt:Shop.DinG.CM
+  gpt:
+    image: gpt:Shop.DinG.CM
     
     restart: always
     environment:
       LANG: 'C.UTF-8'
-    container_name: ${PWD##*/}-Shop.DinG.CM
+    container_name: ${PWD##*/}-GPT
     volumes:
       - ./config.cfg:/app/config.cfg
       - ./data:/app/data
