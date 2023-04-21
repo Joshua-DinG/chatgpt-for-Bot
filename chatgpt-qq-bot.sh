@@ -53,13 +53,13 @@ then
     echo "正在安装 docker-compose..."
     sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
-    sudo usermod -aG docker $USER && newgrp docker
-
-
     
+    # 添加用户到 docker 用户组并启用更改
+    sudo usermod -aG docker $USER && newgrp docker
 else
     echo "docker-compose 已经安装，跳过安装步骤。"
 fi
+
 echo -e "\033[1m\033[38;5;46m初始化完成...\033[0m"
 
 # 下载所需文件
