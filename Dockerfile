@@ -13,7 +13,7 @@ RUN apt-get update && \
 WORKDIR /app
 RUN git clone -b browser-version https://github.com/lss233/chatgpt-mirai-qq-bot  && \
     mv chatgpt-mirai-qq-bot/* chatgpt-mirai-qq-bot/.[!.]* /app && \
-    pip3 install -r requirements.txt && \
+    pip3 install --no-cache-dir -r requirements.txt && pip cache purge && \
     rm -rf chatgpt-mirai-qq-bot
 
 CMD ["python3","/app/bot.py"]
