@@ -7,7 +7,6 @@ services:
       LANG: 'C.UTF-8'
     volumes:
       - ./qq/config.yml:/app/config.yml
-    restart: unless-stopped
   gpt:
     image: gpt:Shop.DinG.CM
     
