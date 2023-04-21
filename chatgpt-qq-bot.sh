@@ -111,6 +111,6 @@ sudo docker build -t qq ./$new_qq/qq/
 
  运行docker-compose.yaml
 echo "正在运行docker-compose.yaml..."
-sudo docker-compose -f ./$new_qq/docker-compose.yaml up -d
+./$new_qq/sudo docker-compose up -d
 
-cd $new_qq && sudo docker-compose logs -f qq
+./$new_qq/sudo docker-compose logs -f qq
