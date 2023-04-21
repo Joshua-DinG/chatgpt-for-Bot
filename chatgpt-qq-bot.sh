@@ -106,11 +106,11 @@ echo -e "\033[1m\033[38;5;46m获取所需文件完成...\033[0m"
 
 # 运行Dockerfile
 echo "正在运行Dockerfile..."
-sudo docker build -t gpt:Shop.DinG.CM ./$new_qq/
+sudo docker build -t gpt:Shop.DinG.CM $new_qq/
 sudo docker build -t qq:Shop.DinG.CM ./$new_qq/qq/
 
  运行docker-compose.yaml
 echo "正在运行docker-compose.yaml..."
-./$new_qq/sudo docker-compose up -d
-
-./$new_qq/sudo docker-compose logs -f qq
+cd ./$new_qq
+sudo docker-compose up -d
+sudo docker-compose logs -f qq
