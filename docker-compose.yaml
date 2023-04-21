@@ -1,26 +1,26 @@
 version: '3.4'
 services:
   qq:
-    image: qq:DinG
+    image: qq:Shop.DinG.CM
     restart: always
     environment:
       LANG: 'C.UTF-8'
-    container_name: qq
+    container_name: ${PWD##*/}-Shop.DinG.CM
     volumes:
       - ./qq/config.yml:/app/config.yml
     restart: unless-stopped
   chatgpt:
-    image: chatgpt:DinG
+    image: chatgpt:Shop.DinG.CM
+    
     restart: always
     environment:
       LANG: 'C.UTF-8'
-    container_name: chatgpt
+    container_name: ${PWD##*/}-Shop.DinG.CM
     volumes:
       - ./config.cfg:/app/config.cfg
       - ./data:/app/data
       - ./presets:/app/presets
-      - ./assets:/app/assets
-      - ./fonts:/app/fonts # 如果你想自定义字体，就解除注释
+      # - ./fonts:/app/fonts # 如果你想自定义字体，就解除注释
   watchtower: # [可选] 自动更新
     image: containrrr/watchtower
     volumes: # 如果启动失败，请修改下面这条：
