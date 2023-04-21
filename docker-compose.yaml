@@ -7,9 +7,8 @@ services:
       LANG: 'C.UTF-8'
     volumes:
       - ./qq/config.yml:/app/config.yml
-  gpt:
-    image: gpt:Shop.DinG.CM
-    
+  chatgpt:
+    image: chatgpt:Shop.DinG.CM
     restart: always
     environment:
       LANG: 'C.UTF-8'
@@ -17,7 +16,7 @@ services:
       - ./config.cfg:/app/config.cfg
       - ./data:/app/data
       - ./presets:/app/presets
-      # - ./fonts:/app/fonts # 如果你想自定义字体，就解除注释
+      #- ./fonts:/app/fonts # 如果你想自定义字体，就解除注释
   watchtower: # [可选] 自动更新
     image: containrrr/watchtower
     volumes: # 如果启动失败，请修改下面这条：
