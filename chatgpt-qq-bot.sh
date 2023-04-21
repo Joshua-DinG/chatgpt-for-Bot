@@ -62,19 +62,6 @@ fi
 
 echo -e "\033[1m\033[38;5;46m初始化完成...\033[0m"
 
-# 下载所需文件
-echo -e "\033[1m\033[38;5;214m获取所需文件...\033[0m"
-git clone https://github.com/Joshua-DinG/chatgpt-for-Bot
-svn co https://github.com/lss233/chatgpt-mirai-qq-bot/trunk/data ./chatgpt-for-Bot/data
-rm -rf chatgpt-for-Bot/data/.svn/
-svn co https://github.com/lss233/chatgpt-mirai-qq-bot/trunk/fonts ./chatgpt-for-Bot/fonts
-rm -rf chatgpt-for-Bot/fonts/.svn/
-svn co https://github.com/lss233/chatgpt-mirai-qq-bot/trunk/presets ./chatgpt-for-Bot/presets
-rm -rf chatgpt-for-Bot/presets/.svn/
-svn co https://github.com/lss233/chatgpt-mirai-qq-bot/trunk/assets/texttoimg/ ./chatgpt-for-Bot/assets/texttoimg/
-rm -rf chatgpt-for-Bot/assets/texttoimg/.svn/
-rm -rf chatgpt-for-Bot/.git/
-echo -e "\033[1m\033[38;5;46m获取所需文件完成...\033[0m"
 
 # 替换文件中的参数
 echo -e "\n\n\n"
@@ -83,34 +70,47 @@ show_ad
 echo -e "\033[1m\033[38;5;214m机器人的参数配置...\033[0m"
 
 read -p $'\e[1m\e[38;5;46m请输入机器人QQ：\e[0m' new_qq
-sed -i "s/^qq = .*/qq = $new_qq/g" ./chatgpt-for-Bot/config.cfg
-sed -i "s/uin: .*/uin: $new_qq/g" ./chatgpt-for-Bot/qq/config.yml
+mkdir $new_qq
+sed -i "s/^qq = .*/qq = $new_qq/g" ./$new_qq/config.cfg
+sed -i "s/uin: .*/uin: $new_qq/g" ./$new_qq/qq/config.yml
 
 echo -e "\n\n\n"
 clear # 清空终端
 show_ad
 read -p $'\033[1m\033[38;5;141m请输入管理员QQ：\033[0m' admin_qq
-sed -i "s/^manager_qq = .*/manager_qq = $admin_qq/g" ./chatgpt-for-Bot/config.cfg
+sed -i "s/^manager_qq = .*/manager_qq = $admin_qq/g" ./$new_qq/config.cfg
 
 echo -e "\n\n\n"
 clear # 清空终端
 show_ad
 read -p $'\e[38;5;201m请输入API-Key：\e[0m' api_key
-sed -i "s/^api_key = .*/api_key = $api_key/g" ./chatgpt-for-Bot/config.cfg
+sed -i "s/^api_key = .*/api_key = $api_key/g" ./$new_qq/config.cfg
 
 
 
 echo -e "\033[1m\033[38;5;46m配置完成...\033[0m"
 
-
+# 下载所需文件
+echo -e "\033[1m\033[38;5;214m获取所需文件...\033[0m"
+git clone https://github.com/Joshua-DinG/chatgpt-for-Bot $new_qq
+svn co https://github.com/lss233/chatgpt-mirai-qq-bot/trunk/data ./$new_qq/data
+rm -rf $new_qq/data/.svn/
+svn co https://github.com/lss233/chatgpt-mirai-qq-bot/trunk/fonts ./$new_qq/fonts
+rm -rf $new_qq/fonts/.svn/
+svn co https://github.com/lss233/chatgpt-mirai-qq-bot/trunk/presets ./$new_qq/presets
+rm -rf $new_qq/presets/.svn/
+svn co https://github.com/lss233/chatgpt-mirai-qq-bot/trunk/assets/texttoimg/ ./$new_qq/assets/texttoimg/
+rm -rf $new_qq/assets/texttoimg/.svn/
+rm -rf $new_qq/.git/
+echo -e "\033[1m\033[38;5;46m获取所需文件完成...\033[0m"
 
 # 运行Dockerfile
 echo "正在运行Dockerfile..."
-sudo docker build -t chatgpt ./chatgpt-for-Bot/
-sudo docker build -t qq ./chatgpt-for-Bot/qq/
+sudo docker build -t chatgpt ./$new_qq/
+sudo docker build -t qq ./$new_qq/qq/
 
  运行docker-compose.yaml
 echo "正在运行docker-compose.yaml..."
-sudo docker-compose -f ./chatgpt-for-Bot/docker-compose.yaml up -d
+sudo docker-compose -f ./$new_qq/docker-compose.yaml up -d
 
-cd cchatgpt-for-Bot && sudo docker-compose logs -f qq
+cd $new_qq && sudo docker-compose logs -f qq
