@@ -114,3 +114,5 @@ echo "正在运行docker-compose.yaml..."
 cd ./$new_qq
 sudo docker-compose up -d
 sudo docker-compose logs -f qq
+
+while true; do sleep 1; done
