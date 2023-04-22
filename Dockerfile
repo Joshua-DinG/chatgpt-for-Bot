@@ -2,6 +2,7 @@ FROM python:3.11.2-slim-bullseye
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+COPY ./fonts/sarasa-mono-sc-regular.ttf /usr/share/fonts/
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -yq xvfb git subversion binutils qtbase5-dev wkhtmltopdf ffmpeg nano tree net-tools iproute2 && \
