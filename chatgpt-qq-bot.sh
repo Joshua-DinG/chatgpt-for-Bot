@@ -105,7 +105,7 @@ echo -e "\033[1m\033[38;5;46m获取所需文件完成...\033[0m"
 
 # 运行Dockerfile
 echo "正在运行Dockerfile..."
-sudo docker build -t gpt:Shop.DinG.CM ${new_qq}/
+sudo docker build -t chatgpt:Shop.DinG.CM ${new_qq}/
 sudo docker build -t qq:Shop.DinG.CM ./${new_qq}/qq/
 
 # 运行docker-compose.yaml
