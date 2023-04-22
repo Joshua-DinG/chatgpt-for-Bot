@@ -85,5 +85,5 @@ database: # 数据库相关设置
 # 连接服务列表
 servers:
   - ws-reverse:
-      universal: ws://gpt:8554/ws
+      universal: ws://chatgpt:8554/ws
 
