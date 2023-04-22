@@ -7,8 +7,8 @@ services:
       LANG: 'C.UTF-8'
     volumes:
       - ./qq/config.yml:/app/config.yml
-  gpt:
-    image: gpt:Shop.DinG.CM
+  chatgpt:
+    image: chatgpt:Shop.DinG.CM
     restart: always
     environment:
       LANG: 'C.UTF-8'
