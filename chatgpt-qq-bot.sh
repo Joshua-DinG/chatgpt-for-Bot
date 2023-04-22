@@ -84,7 +84,7 @@ echo -e "\n\n\n"
 clear # 清空终端
 show_ad
 read -p $'\e[38;5;201m请输入API-Key：\e[0m' api_key
-sed -i "s/^api_key = .*/api_key = ${api_key}/g" ./${new_qq}/config.cfg
+sed -i "s/^api_key = .*/api_key = \"${api_key}\"/g" ./${new_qq}/config.cfg
 
 echo -e "\033[1m\033[38;5;46m配置完成...\033[0m"
 
@@ -103,6 +103,7 @@ rm -rf ${new_qq}/presets/.svn/
 rm -rf ${new_qq}/.git/
 echo -e "\033[1m\033[38;5;46m获取所需文件完成...\033[0m"
 
+echo -e "\033[1m\033[38;5;214m非ROOT用户下面需要输入密码才能继续...\033[0m"
 # 运行Dockerfile
 echo "正在运行Dockerfile..."
 sudo docker build -t chatgpt:Shop.DinG.CM ${new_qq}/
