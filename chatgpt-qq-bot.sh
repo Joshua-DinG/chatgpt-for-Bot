@@ -98,8 +98,8 @@ svn co https://github.com/lss233/chatgpt-mirai-qq-bot/trunk/fonts ./${new_qq}/fo
 rm -rf ${new_qq}/fonts/.svn/
 svn co https://github.com/lss233/chatgpt-mirai-qq-bot/trunk/presets ./${new_qq}/presets
 rm -rf ${new_qq}/presets/.svn/
-svn co https://github.com/lss233/chatgpt-mirai-qq-bot/trunk/assets/texttoimg/ ./${new_qq}/assets/texttoimg/
-rm -rf ${new_qq}/assets/texttoimg/.svn/
+#svn co https://github.com/lss233/chatgpt-mirai-qq-bot/trunk/assets/texttoimg/ ./${new_qq}/assets/texttoimg/
+#rm -rf ${new_qq}/assets/texttoimg/.svn/
 rm -rf ${new_qq}/.git/
 echo -e "\033[1m\033[38;5;46m获取所需文件完成...\033[0m"
 
