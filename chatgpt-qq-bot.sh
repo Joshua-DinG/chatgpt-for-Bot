@@ -108,6 +108,8 @@ echo -e "\033[1m\033[38;5;214m非ROOT用户下面需要输入密码才能继续.
 echo "正在运行Dockerfile..."
 sudo docker build -t gpt:Shop.DinG.CM ${new_qq}/
 sudo docker build -t qq:Shop.DinG.CM ./${new_qq}/qq/
+rm -rf ./${new_qq}/Dockerfile
+rm -rf ./${new_qq}/qq/Dockerfile
 
 # 运行docker-compose.yaml
 echo "正在运行docker-compose.yaml..."
