@@ -6,7 +6,7 @@ services:
     environment:
       LANG: 'C.UTF-8'
     volumes:
-      - ./qq:/app/config.yml
+      - ./qq:/app
   gpt:
     image: gpt:Shop.DinG.CM
     restart: always
