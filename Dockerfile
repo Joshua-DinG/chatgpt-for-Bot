@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 COPY ./fonts/sarasa-mono-sc-regular.ttf /usr/share/fonts/
 
 RUN apt-get update && \
-    apt-get install --no-install-recommends -yq xvfb git subversion binutils qtbase5-dev wkhtmltopdf ffmpeg nano tree net-tools iproute2 && \
+    apt-get install --no-install-recommends -yq xvfb git subversion binutils qtbase5-dev wkhtmltopdf ffmpeg nano tree net-tools iproute2 ttf-mscorefonts-installer && \
     (strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5 || true) && \
     apt-get remove --purge -yq binutils && \
     apt-get clean && \
