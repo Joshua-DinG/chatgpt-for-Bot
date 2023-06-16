@@ -4,7 +4,7 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y wget nano curl
 
 # 下载和安装 go-cqhttp
-RUN wget -O go-cqhttp.deb https://github.com/Mrs4s/go-cqhttp/releases/download/v1.0.1/go-cqhttp_1.0.1_linux_amd64.deb \
+RUN wget -O go-cqhttp.deb https://github.com/Mrs4s/go-cqhttp/releases/download/v1.0.0-rc5/go-cqhttp_1.0.0-rc5_linux_amd64.deb \
     && dpkg -i go-cqhttp.deb \
     && rm -f *.deb
 
